@@ -1,0 +1,139 @@
+$primary-100: hsl(333, 80%, 67%);
+$primary-200: hsl(300, 43%, 22%);
+
+$neutral-100: hsl(300, 24%, 96%);
+$neutral-200: hsl(0, 0%, 100%);
+$neutral-300: hsl(303, 10%, 53%);
+body {
+  background-color: $neutral-200;
+  background: url(../images/bg-pattern-top-mobile.svg) top no-repeat,
+    url(../images/bg-pattern-bottom-mobile.svg) bottom no-repeat;
+
+  color: $primary-200;
+  font-size: 0.9rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  display: grid;
+  gap: 2.5rem;
+  width: 310px;
+}
+.users {
+  h1 {
+    max-width: 15ch;
+    font-size: 2.2rem;
+    line-height: 1;
+    margin-bottom: 1.3rem;
+  }
+  p {
+    max-width: 50ch;
+    margin: 0;
+  }
+}
+.stars {
+  display: grid;
+  gap: 1rem;
+  font-weight: 900;
+  > div {
+    background-color: $neutral-100;
+    padding: 1rem;
+    border-radius: 11px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    row-gap: 0.4rem;
+    column-gap: 2.1rem;
+  }
+}
+.imgs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.names {
+  color: $neutral-200;
+  display: grid;
+  gap: 1rem;
+  article {
+    background-color: $primary-200;
+    border-radius: 9px;
+    text-align: start;
+    padding: 1.6rem;
+  }
+  img {
+    border-radius: 50%;
+    height: 2.8rem;
+  }
+  strong {
+    display: block;
+  }
+  em {
+    color: $primary-100;
+  }
+}
+.title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  margin-bottom: 1.4rem;
+}
+
+@media (min-width: 1060px) {
+  body {
+    background: url(../images/bg-pattern-top-desktop.svg) left top no-repeat,
+      url(../images/bg-pattern-bottom-desktop.svg) right bottom no-repeat;
+    height: 99vh;
+    text-align: start;
+  }
+  main {
+    width: 1060px;
+    grid-template-columns: 0.8fr;
+    grid-template-areas:
+      "top  stars"
+      "bottom  bottom";
+  }
+  .users {
+    grid-area: top;
+    h1 {
+      font-size: 2.6rem;
+      margin: 0;
+    }
+    p {
+      font-size: 1rem;
+      margin-top: 2.3rem;
+    }
+  }
+  .stars {
+    grid-area: stars;
+    gap: 0.8rem;
+    padding: 1.7rem 0;
+    > div {
+      width: fit-content;
+      height: fit-content;
+    }
+    > div:nth-child(2) {
+      margin-inline: auto;
+    }
+    > div:nth-child(3) {
+      margin-left: auto;
+    }
+  }
+  .names {
+    grid-area: bottom;
+    grid-auto-flow: column;
+    article {
+      height: fit-content;
+    }
+    article:nth-child(2) {
+      margin-top: 0.9rem;
+    }
+    article:nth-child(3) {
+      margin-top: 1.6rem;
+    }
+  }
+}
